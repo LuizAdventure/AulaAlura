@@ -20,7 +20,7 @@ class ListaTransacoesActivity : AppCompatActivity() {
         setContentView(view)
 
         val lista = listOf(
-            Transacao(BigDecimal(20.5),
+            Transacao(BigDecimal(30.5),
         "Comida", Calendar.getInstance()),
             Transacao(BigDecimal(100.0),
         "Economia", Calendar.getInstance())
