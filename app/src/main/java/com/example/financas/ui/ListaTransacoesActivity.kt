@@ -1,10 +1,8 @@
 package com.example.financas.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.example.financas.R
 import com.example.financas.databinding.ActivityListaTransacoesBinding
 
 class ListaTransacoesActivity : AppCompatActivity() {
