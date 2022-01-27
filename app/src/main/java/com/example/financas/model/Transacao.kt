@@ -1,19 +1,11 @@
 package com.example.financas.model
 
+import java.io.Serializable
 import java.math.BigDecimal
 import java.util.Calendar
 
 class Transacao (
-    value: BigDecimal,
-    category: String,
-    date: Calendar
-){
-
-    private val value: BigDecimal = value
-    private val category: String = category
-    private val date: Calendar = date
-
-    fun getvalue(): BigDecimal{
-        return value
-    }
-}
+    val value: BigDecimal,
+    val category: String,
+    val date: Calendar
+): Serializable

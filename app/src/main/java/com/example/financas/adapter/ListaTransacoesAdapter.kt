@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.example.financas.R
 import com.example.financas.databinding.TransacaoItemBinding
 import com.example.financas.model.Transacao
+import java.text.SimpleDateFormat
 
 class ListaTransacoesAdapter(
     lista: List<Transacao>,
@@ -37,7 +38,12 @@ class ListaTransacoesAdapter(
 
         val transacao = lista[position]
 
-        view.findViewById<TextView>(R.id.transacao_valor).setText(transacao.getvalue().toString())
+        view.findViewById<TextView>(R.id.transacao_valor).text = transacao.value.toString()
+        view.findViewById<TextView>(R.id.transacao_categoria).text = transacao.category
+        val formatBrazil = "dd/MM/yyyy"
+        val format = SimpleDateFormat(formatBrazil)
+        val dateformat = format.format(transacao.date.time)
+        view.findViewById<TextView>(R.id.transacao_data).text = dateformat
 
 
 
