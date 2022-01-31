@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.financas.adapter.ListaTransacoesAdapter
 import com.example.financas.databinding.ActivityListaTransacoesBinding
+import com.example.financas.model.Tipo
 import com.example.financas.model.Transacao
 import java.math.BigDecimal
 import java.util.*
@@ -20,10 +21,12 @@ class ListaTransacoesActivity : AppCompatActivity() {
         setContentView(view)
 
         val lista = listOf(
-            Transacao(BigDecimal(30.5),
-        "Comida", Calendar.getInstance()),
-            Transacao(BigDecimal(100.0),
-        "Economia", Calendar.getInstance())
+            Transacao(
+                value = BigDecimal(30.5),
+                tipo = Tipo.DESPESA, category = "Comida"),
+            Transacao(
+                value = BigDecimal(100.0),
+                tipo = Tipo.RECEITA, category = "Premio")
         )
 
         val arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1, lista)

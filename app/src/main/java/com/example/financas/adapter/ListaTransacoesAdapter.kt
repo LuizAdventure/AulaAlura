@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.financas.R
 import com.example.financas.extensions.formatForBrazil
+import com.example.financas.model.Tipo
 import com.example.financas.model.Transacao
 
 class ListaTransacoesAdapter(
@@ -36,6 +39,25 @@ class ListaTransacoesAdapter(
             .inflate(R.layout.transacao_item, parent,false)
 
         val transacao = lista[position]
+
+        if(transacao.tipo == Tipo.RECEITA){
+            view.findViewById<TextView>(R.id.transacao_valor)
+                .setTextColor(ContextCompat.getColor(context,R.color.receita))
+        }else {
+            view.findViewById<TextView>(R.id.transacao_valor)
+                .setTextColor(ContextCompat.getColor(context,R.color.despesa))
+        }
+
+        if(transacao.tipo == Tipo.RECEITA){
+            view.findViewById<ImageView>(R.id.transacao_icone)
+                .setBackgroundResource(R.drawable.icone_transacao_item_receita)
+        }else {
+            view.findViewById<ImageView>(R.id.transacao_icone)
+                .setBackgroundResource(R.drawable.icone_transacao_item_despesa)
+        }
+
+
+
 
         view.findViewById<TextView>(R.id.transacao_valor).text = transacao.value.toString()
         view.findViewById<TextView>(R.id.transacao_categoria).text = transacao.category

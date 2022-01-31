@@ -6,6 +6,7 @@ import java.util.Calendar
 
 class Transacao (
     val value: BigDecimal,
-    val category: String,
-    val date: Calendar
+    val category: String = "Indefinida",
+    val tipo: Tipo,
+    val date: Calendar = Calendar.getInstance()
 ): Serializable
